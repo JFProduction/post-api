@@ -1,9 +1,9 @@
-import db from './../models';
+import db from './../models'
 
-const commentController = {};
+const commentController = {}
 
 commentController.post = (req, res) => {
-    const { userId, text, postId } = req.body;
+    const { userId, text, postId } = req.body
 
     // validation
 
@@ -11,7 +11,7 @@ commentController.post = (req, res) => {
         text,
         _creator: userId,
         _post: postId,
-    });
+    })
 
     comment.save().then((newComment) => {
         db.Post.findByIdAndUpdate(
@@ -22,17 +22,17 @@ commentController.post = (req, res) => {
                 success: true,
                 data: newComment,
                 existingPost,
-            });
+            })
         }).catch((err) => {
             res.status(500).json({
                 message: err,
-            });
-        });
+            })
+        })
     }).catch((err) => {
         res.status(500).json({
             message: err,
-        });
-    });
+        })
+    })
 }
 
-export default commentController;
+export default commentController

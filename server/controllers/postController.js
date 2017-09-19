@@ -1,6 +1,6 @@
-import db from './../models';
+import db from './../models'
 
-const postController = {};
+const postController = {}
 
 postController.post = (req, res) => {
     const {  
@@ -8,26 +8,26 @@ postController.post = (req, res) => {
         text,
         link,
         userId,
-    } = req.body;
+    } = req.body
 
     const post = new db.Post({
         title,
         text,
         link,
         _creator: userId,
-    });
+    })
 
     post.save().then((newPost) => {
         return res.status(200).json({
             success: true,
             data: newPost
-        });
+        })
     }).catch((err) => {
         return res.status(500).json({
             message: err
-        });
-    });
-};
+        })
+    })
+}
 
 postController.getAll = (req, res) => {
     db.Post.find({}).populate({
@@ -38,15 +38,15 @@ postController.getAll = (req, res) => {
         select: 'text createdAt _creator',
         match: { 'isDeleted': false }
     }).then((posts) => {
-        return res.status(200).json({
+        return res.json({
             success: true,
             data: posts
-        });
+        })
     }).catch((err) => {
         return res.status(500).json({
             message: err
-        });
-    });
-};
+        })
+    })
+}
 
-export default postController;
+export default postController

@@ -1,8 +1,8 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
-const { Schema } = mongoose;
+const { Schema } = mongoose
 
-mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise
 
 const userSchema = new Schema({
     username: {
@@ -12,9 +12,9 @@ const userSchema = new Schema({
     },
     createdAt: { type: Date, default: Date.now },
     isDeleted: { type: Boolean, default: false },
-});
+})
 
 // Write some encryption here...
 
-const User = mongoose.model('User', userSchema);
-export default User;
+const User = mongoose.model('User', userSchema)
+export default User

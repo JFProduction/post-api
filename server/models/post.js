@@ -1,8 +1,8 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
-const { Schema } = mongoose;
+const { Schema } = mongoose
 
-mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise
 
 const postSchema = new Schema({
     title: { type: String, required: true },
@@ -12,9 +12,9 @@ const postSchema = new Schema({
     createdAt: { type: Date, default: Date.now },
     _creator: { type: Schema.ObjectId, ref: 'User' },
     _comments: [{ type: Schema.ObjectId, ref: 'Comment' }],
-});
+})
 
 // Write some encryption here...
 
-const Post = mongoose.model('Post', postSchema);
-export default Post;
+const Post = mongoose.model('Post', postSchema)
+export default Post
