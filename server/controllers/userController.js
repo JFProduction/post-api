@@ -20,6 +20,23 @@ userController.post = (req, res) => {
     })
 }
 
+userController.getById = (req, res) => {
+    const { id } = req.body
+    console.log(id)
+    
+    db.User.findById(id, (err, user) => {
+        if (err) {
+            res.status(500).json({
+                msg: err.message
+            })
+        }
+
+        res.status(200).json({
+            user: user
+        })
+    })
+}
+
 userController.getAll = (req, res) => {
     db.User.find((err, users) => {
         if (err) {

@@ -8,7 +8,7 @@ const userSchema = new Schema({
     username: {
         type: String,
         required: true,
-        minlength: [5, 'Username must be at least 5 characters or more'],
+        minlength: [3, 'Username must be at least 3 characters or more'],
     },
     createdAt: { type: Date, default: Date.now },
     isDeleted: { type: Boolean, default: false },
