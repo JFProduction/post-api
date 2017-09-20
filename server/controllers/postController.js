@@ -54,7 +54,11 @@ postController.getByUser = (req, res) => {
 
     db.Post.find({}).populate({
         path: '_creator',
-        select: 'username -_id'
+        select: 'username'
+    }).populate({
+        path: '_comments',
+        select: 'text createdAt _creator',
+        match: { 'isDeleted': false }
     }).then(posts => {
         res.status(200).json({
             posts: posts.filter(post => {
