@@ -15,6 +15,7 @@ routes.post('/userById', userController.getById)
 
 routes.post('/post', postController.post)
 routes.get('/posts', postController.getAll)
+routes.post('/postsByUser', postController.getByUser)
 
 routes.post('/comment', commentController.post)
 

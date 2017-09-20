@@ -24,7 +24,7 @@ postController.post = (req, res) => {
         })
     }).catch((err) => {
         return res.status(500).json({
-            message: err
+            err: err
         })
     })
 }
@@ -44,7 +44,26 @@ postController.getAll = (req, res) => {
         })
     }).catch((err) => {
         return res.status(500).json({
-            message: err
+            err: err
+        })
+    })
+}
+
+postController.getByUser = (req, res) => {
+    const { username } = req.body
+    console.log(username)
+    db.Post.find({}).populate({
+        path: '_creator',
+        select: 'username -_id'
+    }).then(posts => {
+        res.status(200).json({
+            posts: posts.filter(post => {
+                return post._creator.username === username
+            })
+        })
+    }).catch(err => {
+        return res.status(500).json({
+            err: err
         })
     })
 }
