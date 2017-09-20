@@ -51,7 +51,7 @@ postController.getAll = (req, res) => {
 
 postController.getByUser = (req, res) => {
     const { username } = req.body
-    console.log(username)
+
     db.Post.find({}).populate({
         path: '_creator',
         select: 'username -_id'
