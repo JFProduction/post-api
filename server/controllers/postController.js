@@ -30,7 +30,7 @@ postController.post = (req, res) => {
 }
 
 postController.getAll = (req, res) => {
-    db.Post.find({}).populate({
+    db.Post.find({}).sort('-createdAt').populate({
         path: '_creator',
         select: 'username -_id'
     }).populate({
