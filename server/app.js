@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 import routes from './routes'
 import bodyParser from 'body-parser'
 
-mongoose.connect('mongodb://localhost:27017/test', () => {
+mongoose.connect('mongodb://admin:garbage123@ds147274.mlab.com:47274/post_stuff', () => {
     console.log('connected to mongodb')
 })
 

@@ -49,6 +49,26 @@ postController.getAll = (req, res) => {
     })
 }
 
+postController.getById = (req, res) => {
+    const { id } = req.body
+    db.Post.findById(id).populate({
+        path: '_creator',
+        select: 'username'
+    }).sort('-createdAt').populate({
+        path: '_comments',
+        select: 'text createdAt _creator',
+        match: { 'isDeleted': false }
+    }).then(post => {
+        return res.status(200).json({
+            comments: post._comments
+        })
+    }).catch((err) => {
+        return res.status(500).json({
+            err: err
+        })
+    })
+}
+
 postController.getByUser = (req, res) => {
     const { username } = req.body
 
