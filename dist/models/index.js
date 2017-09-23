@@ -4,23 +4,23 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _User = require('./User');
+var _user = require('./user');
 
-var _User2 = _interopRequireDefault(_User);
+var _user2 = _interopRequireDefault(_user);
 
-var _Post = require('./Post');
+var _post = require('./post');
 
-var _Post2 = _interopRequireDefault(_Post);
+var _post2 = _interopRequireDefault(_post);
 
-var _Comment = require('./Comment');
+var _comment = require('./comment');
 
-var _Comment2 = _interopRequireDefault(_Comment);
+var _comment2 = _interopRequireDefault(_comment);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    User: _User2.default,
-    Post: _Post2.default,
-    Comment: _Comment2.default
+    User: _user2.default,
+    Post: _post2.default,
+    Comment: _comment2.default
 };
 //# sourceMappingURL=index.js.map

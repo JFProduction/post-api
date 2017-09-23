@@ -1,6 +1,6 @@
-import User from './User'
-import Post from './Post'
-import Comment from './Comment'
+import User from './user'
+import Post from './post'
+import Comment from './comment'
 
 export default {
     User,
