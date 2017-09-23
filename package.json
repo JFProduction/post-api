@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "nodemon bin/dev",
-    "start": "node server/index.js",
+    "foo": "node server/index.js",
     "clean": "rm -rf dist",
     "build": "npm run clean && mkdir dist && babel server -s -d dist",
-    "production": "npm run build && nodemon bin/production"
+    "start": "npm run build && node bin/production"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
