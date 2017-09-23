@@ -69,6 +69,25 @@ postController.getById = (req, res) => {
     })
 }
 
+postController.update = (req, res) => {
+    const { id, text } = req.body
+
+    db.Post.findById(id, (err, post) => {
+        if (err) res.status(500).json({ err: err })
+
+        post.text = text
+        post.save().then((newPost) => {
+            return res.status(200).json({
+                data: newPost
+            })
+        }).catch((err) => {
+            return res.status(500).json({
+                err: err
+            })
+        })
+    })
+}
+
 postController.getByUser = (req, res) => {
     const { username } = req.body
 
