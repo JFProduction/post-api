@@ -16,7 +16,7 @@ var allowCrossDomain = function allowCrossDomain(req, res, next) {
 
 _app2.default.use(allowCrossDomain);
 
-_app2.default.listen(3040, function () {
-    console.log('running on port 3040');
+_app2.default.listen(process.env.PORT || 3000, function () {
+    console.log('running on port ' + process.env.PORT || "3000");
 });
 //# sourceMappingURL=index.js.map

@@ -10,6 +10,6 @@ var allowCrossDomain = function(req, res, next) {
 
 app.use(allowCrossDomain)
 
-app.listen(3040, () => {
-    console.log('running on port 3040')
+app.listen(process.env.PORT || 3000, () => {
+    console.log('running on port ' + process.env.PORT || "3000")
 })
