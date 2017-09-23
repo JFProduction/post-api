@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../server/models/index.js"],"names":["User","Post","Comment"],"mappings":";;;;;;AAAA;;;;AACA;;;;AACA;;;;;;kBAEe;AACXA,wBADW;AAEXC,wBAFW;AAGXC;AAHW,C","file":"index.js","sourcesContent":["import User from './User'\nimport Post from './Post'\nimport Comment from './Comment'\n\nexport default {\n    User,\n    Post,\n    Comment,\n}"]}
