@@ -7,7 +7,7 @@ var basicController = {};
 
 basicController.get = function (req, res) {
     res.json({
-        message: 'welcome to our api'
+        message: 'welcome to our api!! LETS GOOOOOO'
     });
 };
 
