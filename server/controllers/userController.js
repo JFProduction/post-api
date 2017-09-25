@@ -8,22 +8,53 @@ userController.post = (req, res) => {
         username,
     })
 
-    user.save().then((newUser) => {
+    db.User.find({ username: username }, (err, user) => {
+        if (err) {
+            res.status(500).json({
+                msg: err.message
+            })
+        }
+        
+        if (user.length == 0) {
+            const user = new db.User({
+                username,
+            })
+
+            user.save().then((newUser) => {
+                res.status(200).json({
+                    data: newUser
+                })
+            }).catch((err) => {
+                res.json({
+                    message: err,
+                })
+            })
+        } else {
+            res.json({
+                data: user
+            })
+        }
+    })
+}
+
+userController.userByName = (req, res) => {
+    const { username } = req.body
+
+    db.User.find({ username: username }, (err, user) => {
+        if (err) {
+            res.status(500).json({
+                msg: err.message
+            })
+        }
+        
         res.status(200).json({
-            success: true,
-            data: newUser,
-        })
-    }).catch((err) => {
-        res.json({
-            message: err,
+            user: user
         })
     })
 }
 
 userController.getById = (req, res) => {
     const { id } = req.body
-    console.log(id)
-    
     db.User.findById(id, (err, user) => {
         if (err) {
             res.status(500).json({

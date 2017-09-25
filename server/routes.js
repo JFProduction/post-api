@@ -12,6 +12,7 @@ routes.post('/signup', userController.post)
 routes.get('/getUsers', userController.getAll)
 routes.delete('/deleteUser', userController.delete)
 routes.post('/userById', userController.getById)
+routes.post('/userByName', userController.userByName)
 
 routes.post('/post', postController.post)
 routes.get('/posts', postController.getAll)

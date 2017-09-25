@@ -1,3 +1,4 @@
+import mongoose from 'mongoose'
 import db from './../models'
 
 const postController = {}
@@ -90,7 +91,7 @@ postController.update = (req, res) => {
 
 postController.getByUser = (req, res) => {
     const { username } = req.body
-
+    var comment = db.Comment
     db.Post.find({}).sort('-createdAt').populate({
         path: '_creator',
         select: 'username'
