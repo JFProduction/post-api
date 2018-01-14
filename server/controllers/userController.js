@@ -7,7 +7,7 @@ userController.post = (req, res) => {
     const user = new db.User({
         username,
     })
-    console.log(username)
+    
     db.User.find({ username: username }, (err, user) => {
         if (err) {
             res.status(500).json({
